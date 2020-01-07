@@ -1,0 +1,243 @@
+// BlogApp数据库数据
+{
+  //用户表
+  "Users": [
+    {
+      "User_Id": "01", //用户ID
+      "Group_Id": "ugi01", //用户组ID
+      "User_Name": "10", //用户名
+      "User_PWD": "category01", //用户密码
+      "User_Phone": "12345678911", //用户手机号码
+      "User_Sex": "男", //用户性别
+      "User_QQ": "856584", //用户QQ号码
+      "User_Email": "856584@qq.com", //用户EMAIL地址
+      "User_Address": "苏州市 吴中区", //用户地址
+      "User_Mark": "200", //用户积分
+      "User_RankId": "V2", //用户等级
+      "User_LastLoginIP": "book01", //用户上一次登录IP地址
+      "User_Birthday": "", //用户生日
+      "User_Description": "10", //自我描述
+      "User_ImageUrl": "category01", //用户头像存储路径
+      "User_School": "author01", //毕业学校
+      "User_RegisterIP": "01", //用户注册时间
+      "User_RegisterTime": "book01", //用户注册时IP地址
+      "User_LastUpdateTime": "10", //用户上次更新博客时间
+      "User_Weibo": "category01", //用户微博
+      "User_BloodType": "author01", //用户血型
+      "User_Says": "01", //用户语录
+      "User_Lock": "book01", //是否锁定，0为不锁定，1为锁定
+      "User_Freeze": "10", //是否冻结，0为不冻结，1为冻结
+      "User_Power": "" //拥有权限
+    }
+  ],
+  //用户权限表
+  "User_Rank": [
+    {
+      "R_Id": 1, //自增ID
+      "User_Rank_Id": "", //等级ID
+      "Rank_Mark": 200, //等级评分
+      "Rank_Name": "二级" //等级名称
+    }
+  ],
+  //用户组表
+  "User_Group": [
+    { //用户组表
+      "G_Id": 1, //自增ID
+      "Group_Id": "ugi01", //用户组ID
+      "Group_Name": "ugi01", //用户组名
+      "Group_Power": "" //用户权限
+    }
+  ],
+  //功能权限表
+  "Power_List": [
+    {
+      "P_Id": 1, //自增ID
+      "Power_Id": "", //权限ID
+      "Power_Name": "" //权限描述
+    }
+  ],
+  //好友表
+  "Friend": [
+    {
+      "F_Id": 1, //自增ID
+      "User_Id": "", //用户ID
+      "Friend_Id": "" //好友ID
+    }
+  ],
+  //用户关注表
+  "User_Attention": [
+    {
+      "A_Id": 1, //自增ID
+      "User_Id": "用户ID", //用户ID
+      "Attention_Id": "关注ID" //关注ID
+    }
+  ],
+  //用户私信表
+  "Secret_Message": [
+    {
+      "Secret_Id": 1, //自增私信ID
+      "Send_Id": "发信者ID", //发信者ID
+      "Receive_Id": "收信者ID", //收信者ID
+      "Message_Topic": "私信标题" //私信标题
+    }
+  ],
+  //系统通知表
+  "System_Message": [
+    {
+      "System_Id": "", //系统通知ID
+      "Send_Id": "接受者ID", //接受者ID
+      "Group_Id": "用户组ID", //用户组ID
+      "Send_Default": "0", //1时发送所有用户，0时则不采用
+      "System_Topic": "通知内容", //通知内容
+      "System_Content": "通知内容" //通知内容
+    }
+  ],
+  //友情链接
+  "Friendly_Link": [
+    {
+      "Link_Id": 1, //友情链接自增ID
+      "Link_Name": "链接名", //友情链接名称
+      "Link_Url": "链接地址", //链接地址
+      "Link_Logo": "logo", //LOGO图片
+      "Show_Order": "显示顺序" //在页面显示的顺序
+    }
+  ],
+  //广告表
+  "AD": [
+    {
+      "Ad_Id": 1, //自增ID
+      "Position_Id": 0, //0,站外广告;从1开始代表的是该广告所处的广告位,同表ad_postition中的字段position_id的值
+      "Media_Type": 0, //广告类型,0图片;1flash;2代码3文字
+      "Ad_Name": "", //该条广告记录的广告名称
+      "Ad_Link": "", //广告链接地址
+      "Ad_Code": "", //广告链接的表现,文字广告就是文字或图片和flash就是它们的地址
+      "Start_Time": "", //广告开始时间
+      "End_Time": "", //广告结束时间
+      "Link_Man": "", //广告联系人
+      "Link_Email": "", //广告联系人的邮箱
+      "Link_Phone": "", //广告联系人得电话
+      "Click_Count": 0, //广告点击次数
+      "Enabled": 0 //该广告是否关闭;1开启; 0关闭; 关闭后广告将不再有效
+    }
+  ],
+  //用户留言表
+  "Stay_Message": [
+    {
+      "Stay_Id": 1, //留言表自增ID
+      "User_Id": "", //用户ID
+      "Stay_User_Id": "", //留言者ID
+      "Message_Content": "", //留言内容
+      "Stay_User_IP": "", //留言用户的IP地址
+      "Message_Stay_Time": "", //留言时间
+      "Place": "" //地区
+    }
+  ],
+  //博客信息表
+  "About_Blog": [
+    {
+      "Blog_Id": "", //用户ID
+      "Blog_Keyword": "", //博客关键字
+      "Blog_Description": "", //博客描述
+      "Blog_Name": "", //博客名称
+      "Blog_Title": "" //博客标题
+    }
+  ],
+  //最近访客表
+  "Visitor": [
+    {
+      "V_Id": "", //访客记录ID
+      "Visitor_Id": "", //访客ID
+      "Visitor_Time": "", //来访时间
+      "User_Id": "", //被访用户ID
+      "Visitor_IP": "", //访客IP地址
+      "Type_Id": "", //访问板块ID
+      "Where_Id": "" //查看某板块的某个子项目，如查看相册板块的第3个相册，该ID对应该相册的ID号
+    }
+  ],
+  //用户心情说说表
+  "Shuoshuo": [
+    {
+      "Shuo_Id": "", //说说记录ID
+      "User_Id": "", //用户ID
+      "Shuo_Time": "", //发布时间
+      "Shuo_Ip": "", //说说发布时的IP地址
+      "Shuoshuo": "", //说说内容
+      "Type_Id": "" //栏目ID,默认为3
+    }
+  ],
+  //相片分类表
+  "Photo_Sort": [
+    {
+      "Sort_Img_Id": "", //相册ID
+      "Sort_Img_Name": "", //相册名
+      "Sort_Img_Type": "", //展示方式 0->仅主人可见,1->输入密码即可查看,2->仅好友能查看,3->回答问题即可查看
+      "Img_Password": "", //查看密码
+      "User_Id": "", //所属用户ID
+      "Img_Sort_Question": "", //访问问题
+      "Img_Sort_Answer": "", //访问问题的答案
+      "Type_Id": "", //默认1表示相册板块
+      "Top_Pic_Src": "" //封面图片的路径
+    }
+  ],
+  //相片表
+  "Photos": [
+    {
+      "Photo_Id": "", //相片ID
+      "Photo_Name": "", //相片名称
+      "Photo_Src": "", //图片路径
+      "Photo_Description": "", //图片描述
+      "User_Id": "", //所属用户ID
+      "Sort_Id": "", //所属相册ID
+      "Upload_Time": "", //图片上传时间
+      "Upload_IP": "" //图片操作上传IP地址
+    }
+  ],
+  //文章分类表
+  "Article_Sort": [
+    {
+      "Sort_Article_Id": 1, //文章自增ID
+      "User_Id": "用户id", //该分类所属用户
+      "Sort_Article_Name": "分类Name" //分类名称
+    }
+  ],
+  //文章表
+  "Article": [
+    {
+      "Article_Id": 1, //日志自增ID号
+      "Article_Name": "文章01", //文章名称
+      "Article_Time": "2020/1/6", //发布时间
+      "Article_IP": "", //发布IP
+      "Article_Click": 0, //查看人数
+      "Sort_Article_Id": 1, //所属分类
+      "User_Id": "用户id", //所属用户ID
+      "Type_Id": "", //栏目ID
+      "Article_Type": 0, //文章的模式:0为私有，1为公开，2为仅好友查看
+      "Article_Content": "这里是文章内容", //文章内容
+      "Article_Up": 0, //是否置顶:0为否，1为是
+      "Article_Support": 1 //是否博主推荐:0为否，1为是
+    }
+  ],
+  //用户评论表
+  "User_Comment": [
+    {
+      "C_Id": "", //评论自增ID号
+      "User_Id": "", //收到评论的用户ID
+      "Type_Id": "", //评论栏目ID
+      "Commit_Id": "", //评论内容的ID
+      "Commit_Content": "", //评论内容
+      "Commit_User_Id": "", //评论者ID
+      "Commit_Time": "", //评论时间
+      "Commit_IP": "" //评论时的IP地址
+    }
+  ],
+  //短信记录表
+  "Phone_Message": [
+    {
+      "Phone_Id": "", //自增ID
+      "Phone_Num": "", //用户手机号码
+      "Contents": "", //发送内容
+      "Send_Time": "", //发送时间
+      "User_Id": "" //用户ID
+    }
+  ]
+}

@@ -32,9 +32,8 @@ namespace BlogWebApp
 
             services.AddSingleton<IDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
-
-            services.AddSingleton<BookService>();
-            services.AddSingleton<UserService>();
+            
+            services.AddSingleton<ArticlesService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
