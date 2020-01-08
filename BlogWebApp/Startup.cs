@@ -21,18 +21,26 @@ namespace BlogWebApp
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(option => 
+                option.AddPolicy("cors", policy => policy.AllowAnyHeader()
+                //.WithOrigins("https://localhost:44324","https://localhost:8080")
+                .AllowAnyMethod()
+                .AllowCredentials()
+                .AllowAnyOrigin()));
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
             services.Configure<DatabaseSettings>(
                 Configuration.GetSection(nameof(DatabaseSettings)));
 
             services.AddSingleton<IDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
-            
+
             services.AddSingleton<ArticlesService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -51,6 +59,7 @@ namespace BlogWebApp
                 app.UseHsts();
             }
 
+            app.UseCors("cors");
             app.UseHttpsRedirection();
             app.UseMvc();
         }

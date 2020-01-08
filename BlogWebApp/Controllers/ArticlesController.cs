@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlogWebApp.Models.Tables;
 using BlogWebApp.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,7 @@ namespace BlogWebApp.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
+    [EnableCors("cors")]
     public class ArticlesController : ControllerBase
     {
         private readonly ArticlesService _articlesService;
