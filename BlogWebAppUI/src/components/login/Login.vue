@@ -2,7 +2,7 @@
   <div class="login">
     <div class="login_left">
       <h1 class="loginName">登录</h1>
-      <el-form :model="ruleForm"
+      <el-form :model="user"
                status-icon
                :rules="rules"
                ref="ruleForm"
@@ -11,13 +11,13 @@
         <el-form-item label="用户名"
                       prop="username">
           <el-input type="username"
-                    v-model="ruleForm.username"
+                    v-model="user.userName"
                     autocomplete="off"></el-input>
         </el-form-item>
         <el-form-item label="密码"
                       prop="pass">
           <el-input type="password"
-                    v-model="ruleForm.pass"
+                    v-model="user.userPwd"
                     autocomplete="off"></el-input>
         </el-form-item>
         <div class="yzm">

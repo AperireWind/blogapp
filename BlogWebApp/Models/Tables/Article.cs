@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace BlogWebApp.Models.Tables
         /// <summary>
         /// 文章名称
         /// </summary>
+        [JsonProperty("ArticleName")]
         public string Article_Name { get; set; }
         /// <summary>
         /// 发布时间
