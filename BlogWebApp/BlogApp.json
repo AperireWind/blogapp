@@ -15,13 +15,13 @@
       "User_Mark": "200", //用户积分
       "User_RankId": "V2", //用户等级
       "User_LastLoginIP": "book01", //用户上一次登录IP地址
-      "User_Birthday": "", //用户生日
+      "User_Birthday": "2020-01-01", //用户生日
       "User_Description": "10", //自我描述
       "User_ImageUrl": "category01", //用户头像存储路径
       "User_School": "author01", //毕业学校
       "User_RegisterIP": "01", //用户注册时间
-      "User_RegisterTime": "book01", //用户注册时IP地址
-      "User_LastUpdateTime": "10", //用户上次更新博客时间
+      "User_RegisterTime": "2020-01-01", //用户注册时IP地址
+      "User_LastUpdateTime": "2020-01-01", //用户上次更新博客时间
       "User_Weibo": "category01", //用户微博
       "User_BloodType": "author01", //用户血型
       "User_Says": "01", //用户语录

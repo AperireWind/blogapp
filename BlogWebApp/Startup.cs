@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlogWebApi.Services;
 using BlogWebApp.Models;
 using BlogWebApp.Services;
 using Microsoft.AspNetCore.Builder;
@@ -43,6 +44,7 @@ namespace BlogWebApp
                 sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddSingleton<ArticlesService>();
+            services.AddSingleton<UserRulesService>();
 
             services.AddMvc()
                 .AddJsonOptions(options => options.UseMemberCasing())
