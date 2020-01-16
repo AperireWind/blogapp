@@ -10,7 +10,7 @@ import ElementUI from 'element-ui'
 Vue.config.productionTip = false
 // Axios.defaults.baseURL = '/apis'
 // Axios.defaults.timeout = 5000
-// Axios.defaults.headers = { 'Content-Type': 'application/json;charset=gb2312', 'Access-Control-Allow-Origin': '*' }
+// Axios.defaults.headers = { 'Content-Type': 'application/json;charset=gb2312', 'Access-Control-Allow-Origin': '*'}
 Vue.prototype.$axios = Axios
 
 // 使用rem布局设置
