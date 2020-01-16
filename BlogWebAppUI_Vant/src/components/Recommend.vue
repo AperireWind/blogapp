@@ -22,12 +22,12 @@
                            width="1.5rem"
                            height="1.5rem"
                            src="https://img.yzcdn.cn/vant/cat.jpeg" />
-                <span>天才</span>
-                <span>个人简介</span>
+                <span class="userName">天才</span>
+                <span>活到老 学到老</span>
               </p>
-              <p class="middle"
-                 style="text-align:left;">
-                这里是具体的内容简介
+              <p class="middle">
+                1、这里是具体的内容简介
+                2、这里是具体的内容简介
               </p>
               <p class="bottom"
                  style="text-align:left;">
@@ -84,5 +84,19 @@ export default {
 <style lang="less" scoped>
 .recommend {
   margin-bottom: 8vh;
+  .custom-label{
+    .top{
+      display: flex;
+      align-items: center;
+      .userName{
+        margin: 0 0.3rem;
+        color: black;
+      }
+    }
+    .middle{
+      text-align:left;
+      color: black;
+    }
+  }
 }
 </style>

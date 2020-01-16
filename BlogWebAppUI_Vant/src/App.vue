@@ -55,14 +55,13 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-  width: 100vw;
-  height: 100vh;
+  // width: 100vw;
+  // height: 100vh;
 }
 
 #nav {
   width: 100vw;
   height: 8vh;
-  // background-color: rgb(192, 192, 192);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
   position: fixed;
   bottom: 0;

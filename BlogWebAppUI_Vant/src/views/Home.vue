@@ -39,7 +39,7 @@
           <van-icon name="arrow-down"
                     :class="{ whiteColor:activedHT!==2 }" />
         </div>
-        rebang
+        <Hot></Hot>
       </van-tab>
     </van-tabs>
   </div>
@@ -48,10 +48,13 @@
 <script>
 // @ is an alias to /src
 import Recommend from '@/components/Recommend.vue'
+import Hot from '@/components/Hot.vue'
+
 export default {
   name: 'home',
   components: {
-    Recommend
+    Recommend,
+    Hot
   },
   data () {
     return {
