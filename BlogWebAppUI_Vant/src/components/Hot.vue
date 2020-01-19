@@ -17,11 +17,26 @@
       </van-swipe>
       <van-icon class="ht-right"
                 v-show="arrow_top_down"
+                @click="arrow_top_down=false"
                 name="arrow-down" />
-      <van-icon class="ht-right"
-                v-show="!arrow_top_down"
-                name="arrow-up" />
     </div>
+    <van-overlay :show="!arrow_top_down"
+                 z-index="999"
+                 @click="arrow_top_down = true">
+      888
+      <div class="hot-show"
+           @click.stop
+           v-show="!arrow_top_down">
+        <div class="ht-left">
+          全部榜单
+        </div>
+        <van-icon class="ht-right"
+                  @click="arrow_top_down=true"
+                  name="arrow-up" />
+      </div>
+      
+    </van-overlay>
+
     <div class="hot-body">
       <van-pull-refresh v-model="isLoading"
                         @refresh="onRefresh">
@@ -29,8 +44,9 @@
                   :finished="finished"
                   finished-text="没有更多了"
                   @load="onLoad">
-          <van-cell v-for="item in list"
-                    :key="item">
+          <van-cell v-for="(item,i) in list"
+                    class="hbl_item"
+                    :key="i">
             <template slot="title">
               <p class="custom-title"
                  style="text-align:left;">
@@ -38,25 +54,26 @@
               </p>
             </template>
             <template slot="label">
-              <span class="custom-label">
-                <p class="top"
-                   style="text-align:left;">
-                  <van-image round
-                             width="1.5rem"
-                             height="1.5rem"
+              <div class="custom-label">
+                <span style="font-size:20px;font-weight:700;"> {{i}} </span>
+                <span style="margin: 0 0.5rem;">
+                  <p class="middle">
+                    1、这里是具体的内容简介
+                    2、这里是具体的内容简介
+                  </p>
+                  <p class="bottom"
+                     style="text-align:left;">
+                    <span>200 赞同 . 790 评论</span>
+                  </p>
+                </span>
+                <span>
+                  <van-image width="8rem"
+                             height="6rem"
+                             radius="0.3rem"
                              src="https://img.yzcdn.cn/vant/cat.jpeg" />
-                  <span class="userName">天才</span>
-                  <span>活到老 学到老</span>
-                </p>
-                <p class="middle">
-                  1、这里是具体的内容简介
-                  2、这里是具体的内容简介
-                </p>
-                <p class="bottom"
-                   style="text-align:left;">
-                  <span>200 赞同 . 790 评论</span>
-                </p>
-              </span>
+                </span>
+              </div>
+
             </template>
           </van-cell>
         </van-list>
@@ -83,10 +100,17 @@ export default {
       loading: false,
       finished: false,
       count: 0,
-      isLoading: false
+      isLoading: false,
+      activeName: ['1']
     }
   },
   methods: {
+    a () {
+      this.show = true
+    },
+    b () {
+      this.show = false
+    },
     onChange (index) {
       this.current = index
     },
@@ -118,8 +142,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+//解决van-overlay无法正常使用
+::v-deep .van-overlay {
+  position: absolute;
+}
 .hot {
   padding: 1rem;
+  position: relative;
   .hot-top {
     padding: 0.1rem;
     display: flex;
@@ -129,20 +158,47 @@ export default {
       margin-right: 0.5rem;
     }
   }
+  .hot-show {
+    position: absolute;
+    z-index: 555;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-color: rgb(189, 189, 189);
+    .hts-bgc {
+      width: 100vw;
+      height: 100vh;
+      // background-color: rgba(0, 0, 0, 0.329);
+      z-index: 996;
+      position: fixed;
+    }
+    .hts-body {
+      margin: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .ht-left {
+        width: 90%;
+        text-align: left;
+      }
+      .ht-right {
+        width: 10%;
+      }
+    }
+  }
   .hot-body {
     margin-bottom: 8vh;
     .custom-label {
-      .top {
-        display: flex;
-        align-items: center;
-        .userName {
-          margin: 0 0.3rem;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      > span {
+        .middle {
+          text-align: left;
           color: black;
+          margin-top: 0;
         }
-      }
-      .middle {
-        text-align: left;
-        color: black;
       }
     }
   }

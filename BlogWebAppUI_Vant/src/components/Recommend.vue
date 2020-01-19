@@ -84,17 +84,17 @@ export default {
 <style lang="less" scoped>
 .recommend {
   margin-bottom: 8vh;
-  .custom-label{
-    .top{
+  .custom-label {
+    .top {
       display: flex;
       align-items: center;
-      .userName{
+      .userName {
         margin: 0 0.3rem;
         color: black;
       }
     }
-    .middle{
-      text-align:left;
+    .middle {
+      text-align: left;
       color: black;
     }
   }

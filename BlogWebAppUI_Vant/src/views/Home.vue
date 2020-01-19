@@ -58,7 +58,7 @@ export default {
   },
   data () {
     return {
-      activedHT: 1,
+      activedHT: 2,
       searchValue: '',
       homeTop: [
         {
