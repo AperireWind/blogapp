@@ -55,8 +55,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-  // width: 100vw;
-  // height: 100vh;
 }
 
 #nav {
@@ -69,6 +67,8 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  z-index: 9999;
+  background-color: #fff;
   a {
     font-weight: bold;
     color: #2c3e50;

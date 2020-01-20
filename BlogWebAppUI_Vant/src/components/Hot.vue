@@ -7,7 +7,13 @@
                  style="width:90%;"
                  class="ht-left"
                  indicator-color="#888">
-        <van-swipe-item v-for="(item,i) in types"
+        <van-swipe-item>
+          <div slot="default">
+            <van-button size="small"
+                        type="default">全站</van-button>
+          </div>
+        </van-swipe-item>
+        <van-swipe-item v-for="(item,i) in allListTypes"
                         :key="i">
           <div slot="default">
             <van-button size="small"
@@ -23,18 +29,94 @@
     <van-overlay :show="!arrow_top_down"
                  z-index="999"
                  @click="arrow_top_down = true">
-      888
       <div class="hot-show"
            @click.stop
            v-show="!arrow_top_down">
-        <div class="ht-left">
-          全部榜单
+        <div class="ht-one">
+          <div class="ht-left">
+            全部榜单
+          </div>
+          <van-icon class="ht-right"
+                    @click="arrow_top_down=true"
+                    name="arrow-up" />
         </div>
-        <van-icon class="ht-right"
-                  @click="arrow_top_down=true"
-                  name="arrow-up" />
+        <div class="ht-two">
+          <van-panel>
+            <template slot="header">
+              <div class="htt-header">
+                <div class="htth-left">
+                  <span class="title">我的榜单</span>
+                  <span class="miaoshu">长按拖拽排序</span>
+                </div>
+                <div class="htth-right">
+                  <van-button round
+                              type="info"
+                              size="mini"
+                              v-show="allListIsEdit"
+                              @click="allListEdit()"
+                              plain>编辑</van-button>
+                  <van-button round
+                              type="info"
+                              size="mini"
+                              v-show="!allListIsEdit"
+                              @click="finishAllList()"
+                              plain>完成</van-button>
+                </div>
+              </div>
+            </template>
+            <template slot="default">
+              <div class="htth-content">
+                <van-tag size="large"
+                         color="rgb(245, 245, 245)"
+                         text-color="#000"
+                         style="margin:0.3rem;padding: 8px 27px;">
+                  全站
+                </van-tag>
+                <van-tag v-for="(item,i) in allListTypes"
+                         size="large"
+                         color="rgb(245, 245, 245)"
+                         text-color="#000"
+                         style="margin:0.3rem;padding: 8px 27px;"
+                         :key="i">
+                  {{item.name}}
+                  <van-icon name="cross"
+                            v-show="!allListIsEdit"
+                            class="hca-close" />
+                </van-tag>
+              </div>
+
+            </template>
+          </van-panel>
+          <van-panel>
+            <template slot="header">
+              <div class="htt-header">
+                <div class="htth-left">
+                  <span class="title">推荐榜单</span>
+                  <span class="miaoshu">点击添加榜单</span>
+                </div>
+
+              </div>
+            </template>
+            <template slot="default">
+              <div class="htth-content">
+                <van-tag v-for="(item,i) in recommendListTypes"
+                         size="large"
+                         color="rgb(245, 245, 245)"
+                         text-color="#000"
+                         style="margin:0.3rem;padding: 8px 15px;"
+                         :key="i">
+                  <van-icon name="plus"
+                            style="margin-right:10px;" />
+                  {{item.name}}
+                </van-tag>
+              </div>
+
+            </template>
+          </van-panel>
+        </div>
+
       </div>
-      
+
     </van-overlay>
 
     <div class="hot-body">
@@ -88,28 +170,32 @@ export default {
     return {
       arrow_top_down: true,
       current: 0,
-      types: [
-        { name: '全站' },
+      allListTypes: [
         { name: '科学' },
         { name: '数码' },
         { name: '体育' },
         { name: '时尚' },
         { name: '影视' }
       ],
+      recommendListTypes: [
+        { name: '校园' },
+        { name: '汽车' }
+      ],
       list: [],
       loading: false,
       finished: false,
       count: 0,
       isLoading: false,
-      activeName: ['1']
+      activeName: ['1'],
+      allListIsEdit: true
     }
   },
   methods: {
-    a () {
-      this.show = true
+    allListEdit () {
+      this.allListIsEdit = false
     },
-    b () {
-      this.show = false
+    finishAllList () {
+      this.allListIsEdit = true
     },
     onChange (index) {
       this.current = index
@@ -159,33 +245,58 @@ export default {
     }
   }
   .hot-show {
-    position: absolute;
-    z-index: 555;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background-color: rgb(189, 189, 189);
-    .hts-bgc {
-      width: 100vw;
-      height: 100vh;
-      // background-color: rgba(0, 0, 0, 0.329);
-      z-index: 996;
-      position: fixed;
-    }
-    .hts-body {
-      margin: 1rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0 0 10px 10px;
+    padding: 20px;
+    .ht-one {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       .ht-left {
-        width: 90%;
-        text-align: left;
+        font-weight: 600;
       }
       .ht-right {
-        width: 10%;
+        margin-right: 0.4rem;
+      }
+    }
+    .ht-two {
+      .van-panel {
+        .htt-header {
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 0;
+          .htth-left {
+            .title {
+            }
+            .miaoshu {
+              font-size: 12px;
+              margin-left: 10px;
+              color: rgb(150, 150, 150);
+            }
+          }
+          .htth-right {
+          }
+        }
+      }
+      .htth-content {
+        text-align: left;
+        .van-tag {
+          position: relative;
+          .hca-close {
+            position: absolute;
+            top: -0.2rem;
+            right: -0.2rem;
+            border-radius: 50%;
+            background-color: pink;
+            font-size: 12px;
+            padding: 2px;
+            color: white;
+            background-color: rgb(172, 172, 172);
+          }
+        }
       }
     }
   }
+
   .hot-body {
     margin-bottom: 8vh;
     .custom-label {

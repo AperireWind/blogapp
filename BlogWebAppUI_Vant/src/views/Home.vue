@@ -2,10 +2,11 @@
   <div class="home">
     <div class="top">
       <van-icon name="music-o"
+                color="#1989fa"
                 style="width:10%;"
                 size="25" />
       <van-search placeholder="请输入搜索关键词"
-                  style="width:80%;"
+                  style="width:70%;"
                   v-model="searchValue" />
       <van-icon name="sign"
                 style="width:10%;"
@@ -23,7 +24,7 @@
           <van-icon name="arrow-down"
                     :class="{ whiteColor:activedHT!==0 }" />
         </div>
-        guanzhu
+        <GuanZhu></GuanZhu>
       </van-tab>
       <van-tab title="推荐">
         <div slot="title">
@@ -49,12 +50,14 @@
 // @ is an alias to /src
 import Recommend from '@/components/Recommend.vue'
 import Hot from '@/components/Hot.vue'
+import GuanZhu from '@/components/GuanZhu.vue'
 
 export default {
   name: 'home',
   components: {
     Recommend,
-    Hot
+    Hot,
+    GuanZhu
   },
   data () {
     return {
